@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bmi calculation</title>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/src/scripts/bmi.js"></script>
+  </head>
+  <body class="container-fluid">
+    <div class="bg-warning p-4 m-4">
+      <div class="fs-1 text-center text-white">BMI CALCULATION</div>
+    </div>
+    <div class="row fs-4">
+      <div class="col">
+        <div class="bg-primary p-4 m-4">
+          <div class="AdultChild">
+            <dl>
+              <dt>Calculate BMI For</dt>
+              <dd>
+                <select name="" id="age">
+                  <option value="adult">Adult Age 20+</option>
+                  <option value="child">Child age at 2-19</option>
+                </select>
+              </dd>
+            </dl>
+          </div>
+
+          <div class="weight">
+            <dl>
+              <dt>Weight</dt>
+              <dd>
+                <input
+                  type="number"
+                  id="weight"
+                  placeholder="Enter Weight"
+                  value="weight"
+                />
+                <select name="weight" id="weightUnits">
+                  <option value="kilogram">KiloGram</option>
+                  <option value="Pounds">Pounds</option>
+                  <option value="Stones">Stones</option>
+                </select>
+              </dd>
+            </dl>
+          </div>
+          <div class="height">
+            <dl>
+              <dt>Height</dt>
+
+              <dd>
+                <br />
+                <select
+                  name="height"
+                  id="heightUnits"
+                  onchange="toggleHeightInputs()"
+                >
+                  <option value="cm">Centimeter</option>
+                  <option value="m">Meter</option>
+                  <option value="in">Inches</option>
+                  <option value="ftin">Feet+inches</option>
+                </select>
+                <br />
+                <br />
+                <div id="singleHeightInput">
+                  <input type="number" id="height" placeholder="Enter Height" />
+                </div>
+              </dd>
+            </dl>
+            <div id="feetInchInput" style="display: none">
+              <input type="number" id="feet" placeholder="feet" />
+              <input type="number" id="inches" placeholder="inches" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-danger fs-3" onclick="clearForm()">
+                Clear
+              </button>
+            </div>
+            <div class="col">
+              <button class="btn btn-success fs-3" onclick="calculateBMI()">
+                Calculate
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col m-4 p-4">
+        <dl>
+          <dt>Answer</dt>
+        </dl>
+        <dl>
+          <dt>BMI:</dt>
+          <dd id="bmiValue"></dd>
+        </dl>
+        <dl>
+          <dt>Category:</dt>
+          <dd id="bmiCategory"></dd>
+        </dl>
+      </div>
+    </div>
+  </body>
+</html>
